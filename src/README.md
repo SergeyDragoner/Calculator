@@ -48,3 +48,6 @@ npm start
 
 * This project was inspired by [this tutorial](https://www.youtube.com/watch?v=oiX-6Y2oGjI&ab_channel=TylerPotts) from YouTube.
 
+![My Calculator](C:\FullStack\ReactProject\calculator\public\calculator.jpg)
+![My Calculator](C:\FullStack\ReactProject\calculator\public\calculator2.jpg)
+
