@@ -48,3 +48,8 @@ npm start
 
 * This project was inspired by [this tutorial](https://www.youtube.com/watch?v=oiX-6Y2oGjI&ab_channel=TylerPotts) from YouTube.
 
+![calculator2.jpg](..%2Fpublic%2Fcalculator2.jpg)
+![calculator.jpg](..%2Fpublic%2Fcalculator.jpg)
+
+
+
