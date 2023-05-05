@@ -7,21 +7,22 @@ function UI(): JSX.Element {
     const operators = ['+', '-', '*', '/', '.'];
 
     const updateCalc = (value: string) => {
-        if(
+        if (
             operators.includes(value) && calc === '' ||
             operators.includes(value) && operators.includes(calc.slice(-1))
-        ){
+        ) {
             return;
         }
         setCalc(calc + value);
 
-        if(!operators.includes(value)){
-            setResult(eval(calc + value).toString());
+        if (!operators.includes(value)) {
+            if (value !== undefined)
+                setResult(eval(calc + value).toString());
         }
     }
 
 
-    const createDigits = () =>{
+    const createDigits = () => {
         const digits = [];
 
         for (let i = 1; i < 10; i++) {
@@ -34,12 +35,16 @@ function UI(): JSX.Element {
 
 
     const calculate = () => {
-        setCalc(eval(calc).toString())
+        const evalCheck = eval(calc);
+        if (evalCheck === undefined) {
+            return;
+        }
+        setCalc(evalCheck.toString())
         setResult('');
     }
 
     const deleteLast = () => {
-        if(calc === '')
+        if (calc === '')
             return;
 
         const value = calc.slice(0, -1);
@@ -54,23 +59,23 @@ function UI(): JSX.Element {
 
     return (
         <div className="UI">
-			<div className={"calculator"}>
+            <div className={"calculator"}>
                 <div className={"display"}>
                     {calc || 0}<br/>
                     {result ? <span> {result} </span> : ''}
                 </div>
 
                 <div className={"operators"}>
-                    <button onClick={() => deleteAll()}>AC</button>
+                    <button  onClick={() => deleteLast()}>&#x232b;</button>
                     <button onClick={() => updateCalc('/')}>&divide;</button>
                     <button onClick={() => updateCalc('*')}>&times;</button>
                     <button onClick={() => updateCalc('+')}>&#43;</button>
                     <button onClick={() => updateCalc('-')}>&minus;</button>
-                    <button onClick={() => deleteLast()}>&#x232b;</button>
+                    <button id={"del"} onClick={() => deleteAll()}>AC</button>
                 </div>
 
                 <div className={"digits"}>
-                    { createDigits() }
+                    {createDigits()}
                     <button onClick={() => updateCalc('0')}>0</button>
                     <button onClick={() => updateCalc('.')}>.</button>
                     <button id={"equals"} onClick={() => calculate()}>&#61;</button>

@@ -11,6 +11,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Dubai","sans-serif";
+    /*transition: all 0.4s;*/
 }
 
 body{
@@ -69,10 +70,15 @@ button:hover{
 }
 
 .operators button{
+    border-right: solid 1px #131a26;
     flex: 1 1;
     background-color: #E6E6FA;
     color: #131a26;
     font-weight: 700;
+}
+
+.operators > #del{
+    border:none;
 }
 
 .digits{
@@ -94,6 +100,11 @@ button:hover{
 
 .digits #equals:hover{
     opacity: 0.6;
+}
+
+.digits:active{
+    background-color: #888888;
+    transition: 0.4s;
 }
 
 footer {
